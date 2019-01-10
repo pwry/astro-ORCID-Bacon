@@ -6,17 +6,8 @@
 	}
 
 	UI.prototype.draw_form = function () {
-		var form_els = `<div>
-			<input id='first' name='first' type='text' />
-		</div>
-		<div>
-			<input id='second' name='second' type='text' />
-		</div>`;
-		var go_button = document.createElement('button');
-		go_button.innerText = 'Go';
+		var go_button = document.getElementById('go');
 		go_button.onclick = this.go.bind(this);
-		this.el.innerHTML = form_els;
-		this.el.appendChild(go_button);
 	}
 
 	UI.prototype.go = function () {
@@ -25,13 +16,7 @@
 	}
 
 	UI.prototype.display_results = function (res_el) {
-		if (document.getElementById('res-container') === null) {
-			var res_container = document.createElement('div');
-			res_container.id = 'res-container';
-			this.el.appendChild(res_container);
-		} else {
-			var res_container = document.getElementById('res-container');
-		}
+		var res_container = document.getElementById('res-container');
 		res_container.innerHTML = '';
 		res_container.appendChild(res_el);
 	}
